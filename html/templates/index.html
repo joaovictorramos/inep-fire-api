@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='btnReturn.js') }}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <form id="dataForm">
+        <div>
+            <h1>Importador de Queimadas</h1>
+        </div>
+        <div>
+            <div>
+                <label for="state">Estado: 
+                    <select name="state" id="state">
+                        <option value="Todos">Todos</option>
+                        <option value="Acre">Acre</option>
+                        <option value="Alagoas">Alagoas</option>
+                        <option value="Amapá">Amapá</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Bahia">Bahia</option>
+                        <option value="Ceará">Ceará</option>
+                        <option value="Espírito Santo">Espírito Santo</option>
+                        <option value="Goiás">Goiás</option>
+                        <option value="Maranhão">Maranhão</option>
+                        <option value="Mato Grosso">Mato Grosso</option>
+                        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                        <option value="Minas Gerais">Minas Gerais</option>
+                        <option value="Pará">Pará</option>
+                        <option value="Paraíba">Paraíba</option>
+                        <option value="Paraná">Paraná</option>
+                        <option value="Pernambuco">Pernambuco</option>
+                        <option value="Piauí">Piauí</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                        <option value="Rondônia">Rondônia</option>
+                        <option value="Roraima">Roraima</option>
+                        <option value="Santa Catarina">Santa Catarina</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Sergipe">Sergipe</option>
+                        <option value="Tocantis">Tocantis</option>
+                        <option value="Distrito Federal">Distrito Federal</option>
+                    </select>
+                </label>
+                <label for="date_head">Data de Início: 
+                    <input type="datetime-local" name="date_head" id="date_head" value="1979-01-01 00:00" required>
+                </label>
+                <label for="date_tail">Data de Fim: 
+                    <input type="datetime-local" name="date_tail" id="date_tail" value="1979-01-01 00:00" required>
+                </label>
+            </div>
+        </div>
+        <div id="div_button" method="post">
+            <input type="button" onclick="btnDatabase('import_database')" value="Importar no Banco de Dados">
+            <input type="button" onclick="btnCsvOrJson('export_json')" value="Exportar em JSON">
+            <br>
+            <input type="button" onclick="btnCsvOrJson('export_csv')" value="Exportar em CSV">
+            <input type="button" onclick="btnDatabase('export_script')" value="Exportar em Scripts" id="btnExportScript">
+        </div>
+        <hr>
+        <div id="ifDatabase" method="post">
+            <label for="server">Server: 
+                <input type="text" value="DJ10W9D3\SQLEXPRESS" name="server" id="server">
+            </label>
+            <label for="database">Database: 
+                <input type="text" value="bd_sinape_alupar" name="database" id="database">
+            </label>
+            <label for="username">Username: 
+                <input type="text" name="username" id="username">
+            </label>
+            <label for="password">Password: 
+                <input type="password" name="password" id="password">
+            </label>
+            <input type="button" id="btnStartDatabase" value="OK">
+        </div>
+        
+        <div id="ifCsvOrJson" method="post">
+            <label for="path">Diretório de saída: <br>
+                <input type="text" name="path" id="path" value="C:\QUEIMADAS\PLANILHA">
+            </label>
+            <input type="button" id="btnStartCsvOrJson" value="OK">
+        </div> 
+
+        <p id="msg">Carregando...</p>
+    </form>
+</body>
+</html>
