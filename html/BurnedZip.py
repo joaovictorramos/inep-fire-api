@@ -51,10 +51,10 @@ def openZip(KEY, month, year, state, dateHead, dateTail, path, dataConnection):
                     
                 if(dateHead <= data_hora_csv <= dateTail):
                     
-                    print(dateHead)
-                    print(data_hora_csv)
-                    print(dateTail)
-                    print()
+                    #print(dateHead)
+                    #print(data_hora_csv)
+                    #print(dateTail)
+                    #print()
                     
                     if(state == state_csv):
                         if (KEY == 'Import database'):

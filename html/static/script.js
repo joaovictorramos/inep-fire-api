@@ -58,6 +58,7 @@ function handleButtonClick(action){
         })
         .then(response => {
             if(!response.ok){
+                msgFetchValue.innerText = 'Não foi possível realizar a conversão!'
                 throw new Error(`Erro na solicitação: ${response}`)
             }
             return response.json()

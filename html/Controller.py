@@ -116,7 +116,7 @@ def export_csv():
     
 '''
     SCRIPT (Disabled)
-'''
+
 @app.route("/export_script", methods=["POST"])
 def export_script():
     data = request.get_json()
@@ -147,7 +147,7 @@ def export_script():
     KEY = 'Export script'
     csvOrZip(KEY, month, year, state, someConverterDateHead, someConverterDateTail, dataConnection)
     return jsonify(result=data)
-    
+'''
 
 if __name__ == "__main__":
     app.run(debug=True)
